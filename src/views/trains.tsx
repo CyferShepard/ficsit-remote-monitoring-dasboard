@@ -51,7 +51,7 @@ export const Trains: React.FC = (props) => {
       const train = trains_data[i];
       const timetable: { [key: string]: any }[] = train.TimeTable;
 
-      console.log(timetable);
+      // console.log(timetable);
 
       if (timetable.length > 0) {
         let foundIndex = 0;
@@ -86,7 +86,7 @@ export const Trains: React.FC = (props) => {
       }
 
       // tmp.push([timetable[foundIndex]]);
-      console.log(tmp);
+      // console.log(tmp);
       setTStation_PrevNext(tmp);
     }
   };
@@ -153,8 +153,7 @@ export const Trains: React.FC = (props) => {
 
               percentDone = (left / totalLength) * 100;
             }
-            // const _percentDone = percentDone*100;
-            // console.log(index+" -> "+_percentDone);
+
             return (
               <Grid container spacing={2} sx={{ marginY: "30px" }} display={"flex"} alignItems={"center"}>
                 <Grid xs={3}>
@@ -170,7 +169,7 @@ export const Trains: React.FC = (props) => {
                             style={{ height: "70px", width: "70px" }}
                           ></img>
                           <Typography level="h6" sx={{ marginBottom: "5px", marginTop: "10px" }}>
-                            {tStation_PrevNext[index][0].StationName}
+                            {tStation_PrevNext[index][0].Name}
                           </Typography>
                           <Typography level="body3" sx={{ marginBottom: "20px" }}>
                             Departure Station
@@ -182,7 +181,8 @@ export const Trains: React.FC = (props) => {
                             <Typography sx={{ color: "rgba(255,255,255,0.5)" }}>Current State</Typography>
                           </Grid>
                           <Grid>
-                            {tStation_PrevNext[index][0].LoadingStatus === "Idle" && (
+                            {(tStation_PrevNext[index][0].CargoInventory.length === 0 ||
+                              tStation_PrevNext[index][0].LoadingStatus === "Idle") && (
                               <Chip
                                 color="success"
                                 size="sm"
@@ -192,26 +192,28 @@ export const Trains: React.FC = (props) => {
                                 Platform Idle
                               </Chip>
                             )}
-                            {tStation_PrevNext[index][0].LoadingStatus === "Loading" && (
-                              <Chip
-                                color="danger"
-                                size="sm"
-                                variant="outlined"
-                                sx={{ backgroundColor: "rgba(235, 87, 87, 0.12)", borderColor: "rgba(235, 87, 87, 0.12)" }}
-                              >
-                                Loading ...
-                              </Chip>
-                            )}
-                            {tStation_PrevNext[index][0].LoadingStatus === "Unloading" && (
-                              <Chip
-                                color="danger"
-                                size="sm"
-                                variant="outlined"
-                                sx={{ backgroundColor: "rgba(235, 87, 87, 0.12)", borderColor: "rgba(235, 87, 87, 0.12)" }}
-                              >
-                                Unloading ...
-                              </Chip>
-                            )}
+                            {tStation_PrevNext[index][0].CargoInventory.length > 0 &&
+                              tStation_PrevNext[index][0].CargoInventory[0].LoadingStatus === "Loading" && (
+                                <Chip
+                                  color="danger"
+                                  size="sm"
+                                  variant="outlined"
+                                  sx={{ backgroundColor: "rgba(235, 87, 87, 0.12)", borderColor: "rgba(235, 87, 87, 0.12)" }}
+                                >
+                                  Loading ...
+                                </Chip>
+                              )}
+                            {tStation_PrevNext[index][0].CargoInventory.length > 0 &&
+                              tStation_PrevNext[index][0].CargoInventory[0].LoadingStatus === "Unloading" && (
+                                <Chip
+                                  color="danger"
+                                  size="sm"
+                                  variant="outlined"
+                                  sx={{ backgroundColor: "rgba(235, 87, 87, 0.12)", borderColor: "rgba(235, 87, 87, 0.12)" }}
+                                >
+                                  Unloading ...
+                                </Chip>
+                              )}
                           </Grid>
                         </Grid>
                         <Grid container>
@@ -351,7 +353,7 @@ export const Trains: React.FC = (props) => {
                             style={{ height: "70px", width: "70px" }}
                           ></img>
                           <Typography level="h6" sx={{ marginBottom: "5px", marginTop: "10px" }}>
-                            {tStation_PrevNext[index][1].StationName}
+                            {tStation_PrevNext[index][1].Name}
                           </Typography>
                           <Typography level="body3" sx={{ marginBottom: "20px" }}>
                             Destination Station
@@ -363,7 +365,8 @@ export const Trains: React.FC = (props) => {
                             <Typography sx={{ color: "rgba(255,255,255,0.5)" }}>Status</Typography>
                           </Grid>
                           <Grid>
-                            {tStation_PrevNext[index][1].LoadingStatus === "Idle" && (
+                            {(tStation_PrevNext[index][1].CargoInventory.length === 0 ||
+                              tStation_PrevNext[index][1].LoadingStatus === "Idle") && (
                               <Chip
                                 color="success"
                                 size="sm"
@@ -373,26 +376,28 @@ export const Trains: React.FC = (props) => {
                                 Platform Idle
                               </Chip>
                             )}
-                            {tStation_PrevNext[index][1].LoadingStatus === "Loading" && (
-                              <Chip
-                                color="danger"
-                                size="sm"
-                                variant="outlined"
-                                sx={{ backgroundColor: "rgba(235, 87, 87, 0.12)", borderColor: "rgba(235, 87, 87, 0.12)" }}
-                              >
-                                Loading ...
-                              </Chip>
-                            )}
-                            {tStation_PrevNext[index][1].LoadingStatus === "Unloading" && (
-                              <Chip
-                                color="danger"
-                                size="sm"
-                                variant="outlined"
-                                sx={{ backgroundColor: "rgba(235, 87, 87, 0.12)", borderColor: "rgba(235, 87, 87, 0.12)" }}
-                              >
-                                Unloading ...
-                              </Chip>
-                            )}
+                            {tStation_PrevNext[index][1].CargoInventory.length > 0 &&
+                              tStation_PrevNext[index][1].CargoInventory[0].LoadingStatus === "Loading" && (
+                                <Chip
+                                  color="danger"
+                                  size="sm"
+                                  variant="outlined"
+                                  sx={{ backgroundColor: "rgba(235, 87, 87, 0.12)", borderColor: "rgba(235, 87, 87, 0.12)" }}
+                                >
+                                  Loading ...
+                                </Chip>
+                              )}
+                            {tStation_PrevNext[index][1].CargoInventory.length > 0 &&
+                              tStation_PrevNext[index][1].CargoInventory[0].LoadingStatus === "Unloading" && (
+                                <Chip
+                                  color="danger"
+                                  size="sm"
+                                  variant="outlined"
+                                  sx={{ backgroundColor: "rgba(235, 87, 87, 0.12)", borderColor: "rgba(235, 87, 87, 0.12)" }}
+                                >
+                                  Unloading ...
+                                </Chip>
+                              )}
                           </Grid>
                         </Grid>
                         <Grid container>
