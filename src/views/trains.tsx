@@ -31,8 +31,10 @@ export const Trains: React.FC = (props) => {
 
   const loadData = async () => {
     if (doLoadData === true) {
-      const response = await axios.get("http://" + settings.ip + ":" + settings.port + "/getTrains");
-      const response_trainstaions = await axios.get("http://" + settings.ip + ":" + settings.port + "/getTrainStation");
+      const response = await axios.get("`${settings.protocol}://`" + settings.ip + ":" + settings.port + "/getTrains");
+      const response_trainstaions = await axios.get(
+        "`${settings.protocol}://`" + settings.ip + ":" + settings.port + "/getTrainStation"
+      );
 
       // // console.info(trainsData);
       setTrains(response.data);
