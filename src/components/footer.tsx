@@ -46,7 +46,7 @@ export const Footer: React.FC = (props) => {
               <Link
                 style={{ color: "var(--joy-palette-primary-main)", textDecoration: "none" }}
                 target="_blank"
-                to="https://github.com/Jonathan-Hofmann/ficsit-remote-monitoring-dasboard"
+                to="https://github.com/CyferShepard/ficsit-remote-monitoring-dasboard"
               >
                 here
               </Link>
