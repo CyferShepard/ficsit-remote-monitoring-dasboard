@@ -87,8 +87,8 @@ export const StorageView: React.FC = (props) => {
   }, []);
 
   return (
-    <Container sx={{ paddingTop: "50px" }}>
-      <Card variant="outlined" sx={{ paddingBottom: "0px", marginBottom: "30px" }}>
+    <Container sx={{ paddingTop: "30px" }}>
+      <Card variant="outlined" sx={{ paddingBottom: "0px", marginBottom: "10px" }}>
         <CardContent>
           <Grid container display={"flex"} alignItems={"center"} marginBottom={"20px"}>
             <Grid xs>
@@ -117,8 +117,16 @@ export const StorageView: React.FC = (props) => {
                         Math.floor(data.prodStat.CurrentConsumed) > Math.floor(data.prodStat.CurrentProd) ? "3px" : "1px",
                     }}
                   >
-                    {/* <Card variant="outlined" sx={{height: '100%', padding:0}}> */}
-                    <CardContent sx={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "16px" }}>
+                    <CardContent
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        padding: "16px",
+                        paddingTop: "4px",
+                        paddingBottom: "0px",
+                      }}
+                    >
                       {itemRefs[data.item.Name] != undefined && (
                         <img
                           src={"./assets/" + itemRefs[data.item.Name]?.image ?? null}
@@ -143,18 +151,35 @@ export const StorageView: React.FC = (props) => {
                       {factoryRefs[data.item.Name] === undefined &&
                         toolRefs[data.item.Name] === undefined &&
                         itemRefs[data.item.Name] === undefined && <HiOutlineQuestionMarkCircle size="70px" />}
-                      <Typography marginBottom={"5px"}>{data.item.Name}</Typography>
-                      <Typography level="body2">Total: {data.item.Amount}</Typography>
+                      <Typography marginBottom={"5px"}>
+                        {data.item.Name} - {data.item.Amount}
+                      </Typography>
+                      {/* <Typography level="body2">Total: {data.item.Amount}</Typography> */}
                       {/* <Typography level="body2">{data.prodStat.ProdPerMin}</Typography> */}
                       <Grid
                         container
                         px={0}
-                        spacing={2}
+                        spacing={1}
                         margin={0}
-                        style={{ display: "flex", alignItems: "normal", justifyContent: "space-around", marginLeft: "-35px" }}
+                        style={{
+                          display: "flex",
+                          alignItems: "normal",
+                          justifyContent: "space-around",
+                          marginLeft: "-20px",
+                          marginBottom: "0px",
+                        }}
                       >
                         <Grid xs={5}>
-                          <Card variant="outlined" style={{ width: "100%" }}>
+                          <Card
+                            variant="outlined"
+                            style={{
+                              width: "100%",
+                              padding: "10px",
+                              paddingTop: "2px",
+                              paddingBottom: "4px",
+                              alignItems: "center",
+                            }}
+                          >
                             <Typography level="h6">
                               {new Intl.NumberFormat("en-US", {
                                 style: "decimal",
@@ -168,7 +193,16 @@ export const StorageView: React.FC = (props) => {
                         </Grid>
 
                         <Grid xs={5}>
-                          <Card variant="outlined" style={{ width: "100%" }}>
+                          <Card
+                            variant="outlined"
+                            style={{
+                              width: "100%",
+                              padding: "10px",
+                              paddingTop: "2px",
+                              paddingBottom: "4px",
+                              alignItems: "center",
+                            }}
+                          >
                             <Typography level="h6">
                               {new Intl.NumberFormat("en-US", {
                                 style: "decimal",
@@ -183,7 +217,13 @@ export const StorageView: React.FC = (props) => {
                         <Grid xs={5}>
                           <Card
                             variant="outlined"
-                            style={{ width: "100%" }}
+                            style={{
+                              width: "100%",
+                              padding: "10px",
+                              paddingTop: "2px",
+                              paddingBottom: "4px",
+                              alignItems: "center",
+                            }}
                             sx={{
                               backgroundColor:
                                 data.prodStat.MaxProd === 0
@@ -206,7 +246,13 @@ export const StorageView: React.FC = (props) => {
                         <Grid xs={5}>
                           <Card
                             variant="outlined"
-                            style={{ width: "100%" }}
+                            style={{
+                              width: "100%",
+                              padding: "10px",
+                              paddingTop: "2px",
+                              paddingBottom: "4px",
+                              alignItems: "center",
+                            }}
                             sx={{
                               backgroundColor:
                                 data.prodStat.MaxProd < data.prodStat.MaxConsumed
