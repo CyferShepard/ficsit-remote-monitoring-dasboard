@@ -65,7 +65,7 @@ export const Settings: React.FC = (props) => {
                 sx={{ marginTop: "15px" }}
                 value={settings.port.replace(":", "")}
                 onChange={(e) => {
-                  setSettings({ ...settings, ["port"]: ":" + e.target.value });
+                  setSettings({ ...settings, ["port"]: e.target.value !== "" ? ":" + e.target.value : "" });
                 }}
                 startDecorator={
                   `${settings.protocol || defaultSettingsData.protocol}://` + settings.ip + (settings.port !== ":" ? ":" : "")
