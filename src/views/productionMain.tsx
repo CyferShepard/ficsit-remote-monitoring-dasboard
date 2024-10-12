@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { BsBattery, BsBatteryHalf, BsCheck, BsCheck2, BsCloudSlash, BsExclamationTriangleFill } from "react-icons/bs";
 import { factory } from "typescript";
 import { FactoryTypeCol } from "../components/production/col_type";
+import { useLocalStorage } from "../hooks/localStorage";
+import { defaultSettingsData } from "./settings";
 
 interface FactoryData {
   constructor: any[];
@@ -22,6 +24,8 @@ export const Factorys: React.FC = (props) => {
   const [allFactorys, setAllFactorys] = useState<undefined | any>(undefined);
   const [loadingText, setLoadingText] = useState("Data is being loaded ...");
 
+  const [settings, _] = useLocalStorage("rmd_settings", defaultSettingsData);
+
   const theme = useTheme();
 
   let intervalVar: any;
@@ -29,7 +33,7 @@ export const Factorys: React.FC = (props) => {
   const loadData = async () => {
     // setLoadingText("Data is being loaded ...");
     intervalVar = setInterval(async () => {
-      const response = await fetch("`${settings.protocol}://`127.0.0.1:8080/getFactory");
+      const response = await fetch(`${settings.protocol}://` + settings.ip + settings.port + "/getFactory");
       const data = await response.text();
       const getPower = JSON.parse(data);
       console.info(getPower);

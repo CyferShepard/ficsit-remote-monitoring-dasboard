@@ -28,7 +28,7 @@ export const PowerMain: React.FC = (props) => {
       const response = await fetch(`${settings.protocol}://` + settings.ip + settings.port + "/getPower");
       const data = await response.text();
       const getPower = JSON.parse(data);
-      console.info(getPower);
+      // console.info(getPower);
       setPower(getPower);
     }, settings.interval);
   };
@@ -37,7 +37,7 @@ export const PowerMain: React.FC = (props) => {
     loadData();
 
     return function cleanup() {
-      console.error("CLEANUP!");
+      // console.error("CLEANUP!");
       clearInterval(intervalVar);
     };
   }, []);
@@ -169,6 +169,7 @@ export const PowerMain: React.FC = (props) => {
           {power.map((powerGroup: any, index: number) => {
             return (
               <Card
+                key={index}
                 variant="outlined"
                 sx={{
                   marginBottom: "30px",

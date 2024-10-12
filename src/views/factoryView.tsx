@@ -24,7 +24,7 @@ export const DetailedFactoryView: React.FC = (props) => {
       const response = await fetch(`${settings.protocol}://` + settings.ip + settings.port + "/" + endpoint);
       const data = await response.text();
       const getPower = JSON.parse(data);
-      console.info(getPower);
+      // console.info(getPower);
       setFactoryData(getPower);
     }, settings.interval);
   };
@@ -60,7 +60,7 @@ export const DetailedFactoryView: React.FC = (props) => {
           <Grid container spacing={3}>
             {FactoryData.map((_factory: any) => {
               return (
-                <Grid xs={4}>
+                <Grid xs={4} key={_factory.location.x + "" + _factory.location.y + "" + _factory.location.z}>
                   <Card variant={"outlined"}>
                     <CardContent>
                       <Grid padding={0} container>
@@ -145,14 +145,26 @@ export const DetailedFactoryView: React.FC = (props) => {
                             </Grid>
                           </Grid>
                           {_factory.production.map((product: any) => {
-                            return <ProductionCard product={product} itemRefs={itemRefs} />;
+                            return (
+                              <ProductionCard
+                                key={_factory.location.x + "prod" + _factory.location.y + "" + _factory.location.z}
+                                product={product}
+                                itemRefs={itemRefs}
+                              />
+                            );
                           })}
 
                           <Typography marginBottom={"15px"} marginTop={"30px"}>
                             INGREDIENTS
                           </Typography>
                           {_factory.ingredients.map((product: any) => {
-                            return <IngredientCard product={product} itemRefs={itemRefs} />;
+                            return (
+                              <IngredientCard
+                                key={_factory.location.x + "ing" + _factory.location.y + "" + _factory.location.z}
+                                product={product}
+                                itemRefs={itemRefs}
+                              />
+                            );
                           })}
                         </Box>
                       )}

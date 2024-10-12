@@ -60,7 +60,7 @@ export const StorageView: React.FC = (props) => {
 
   const prepItems = async (worldInv: Array<any>, prodStats: Array<any>) => {
     worldInv = worldInv.filter((item) => item.Name !== "<MISSING STRING TABLE ENTRY>");
-    console.info(prodStats);
+    // console.info(prodStats);
     prodStats = Array.isArray(prodStats) ? prodStats.filter((stat) => stat.Name !== "<MISSING STRING TABLE ENTRY>") : [];
     const temp = [];
 
@@ -74,7 +74,7 @@ export const StorageView: React.FC = (props) => {
         }
       }
     }
-    console.info(temp);
+    // console.info(temp);
     setItems(temp);
   };
 
@@ -104,7 +104,7 @@ export const StorageView: React.FC = (props) => {
           <Grid container paddingY={0} px={0} spacing={2}>
             {items.map((data: any, index: number) => {
               return (
-                <Grid xs={4}>
+                <Grid key={data.item.Name} xs={4}>
                   <Card
                     variant="outlined"
                     sx={{
@@ -144,8 +144,88 @@ export const StorageView: React.FC = (props) => {
                         toolRefs[data.item.Name] === undefined &&
                         itemRefs[data.item.Name] === undefined && <HiOutlineQuestionMarkCircle size="70px" />}
                       <Typography marginBottom={"5px"}>{data.item.Name}</Typography>
-                      <Typography level="body2">Total: {data.item.Count}</Typography>
-                      <Typography level="body2">{data.prodStat.ProdPerMin}</Typography>
+                      <Typography level="body2">Total: {data.item.Amount}</Typography>
+                      {/* <Typography level="body2">{data.prodStat.ProdPerMin}</Typography> */}
+                      <Grid
+                        container
+                        px={0}
+                        spacing={2}
+                        margin={0}
+                        style={{ display: "flex", alignItems: "normal", justifyContent: "space-around", marginLeft: "-35px" }}
+                      >
+                        <Grid xs={5}>
+                          <Card variant="outlined" style={{ width: "100%" }}>
+                            <Typography level="h6">
+                              {new Intl.NumberFormat("en-US", {
+                                style: "decimal",
+                                minimumFractionDigits: 2,
+                                maximumFractionDigits: 2,
+                              }).format(data.prodStat.CurrentProd)}{" "}
+                              / min
+                            </Typography>
+                            <Typography level="body3">Current Production</Typography>
+                          </Card>
+                        </Grid>
+
+                        <Grid xs={5}>
+                          <Card variant="outlined" style={{ width: "100%" }}>
+                            <Typography level="h6">
+                              {new Intl.NumberFormat("en-US", {
+                                style: "decimal",
+                                minimumFractionDigits: 2,
+                                maximumFractionDigits: 2,
+                              }).format(data.prodStat.CurrentConsumed)}{" "}
+                              / min
+                            </Typography>
+                            <Typography level="body3">Current Consumption</Typography>
+                          </Card>
+                        </Grid>
+                        <Grid xs={5}>
+                          <Card
+                            variant="outlined"
+                            style={{ width: "100%" }}
+                            sx={{
+                              backgroundColor:
+                                data.prodStat.MaxProd === 0
+                                  ? "var(--joy-palette-danger-solidBg)"
+                                  : "var(--joy-palette-background-surface)",
+                            }}
+                          >
+                            <Typography level="h6">
+                              {new Intl.NumberFormat("en-US", {
+                                style: "decimal",
+                                minimumFractionDigits: 2,
+                                maximumFractionDigits: 2,
+                              }).format(data.prodStat.MaxProd)}{" "}
+                              / min
+                            </Typography>
+                            <Typography level="body3">Max Production</Typography>
+                          </Card>
+                        </Grid>
+
+                        <Grid xs={5}>
+                          <Card
+                            variant="outlined"
+                            style={{ width: "100%" }}
+                            sx={{
+                              backgroundColor:
+                                data.prodStat.MaxProd < data.prodStat.MaxConsumed
+                                  ? "var(--joy-palette-danger-solidBg)"
+                                  : "var(--joy-palette-background-surface)",
+                            }}
+                          >
+                            <Typography level="h6">
+                              {new Intl.NumberFormat("en-US", {
+                                style: "decimal",
+                                minimumFractionDigits: 2,
+                                maximumFractionDigits: 2,
+                              }).format(data.prodStat.MaxConsumed)}{" "}
+                              / min
+                            </Typography>
+                            <Typography level="body3">Max. Consumed</Typography>
+                          </Card>
+                        </Grid>
+                      </Grid>
                     </CardContent>
                   </Card>
                 </Grid>
