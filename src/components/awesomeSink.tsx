@@ -79,7 +79,7 @@ export const AwesomeSink: React.FC = (props) => {
                     </Grid>
                     <Grid display={"flex"} alignItems={"flex-end"} flexDirection="column">
                       <Typography level="h4">
-                        {new Intl.NumberFormat("de-DE", { style: "decimal" }).format(sinks[0].TotalPoints)}
+                        {new Intl.NumberFormat("en-US", { style: "decimal" }).format(sinks[0].TotalPoints)}
                       </Typography>
                       <Typography level="body2">Total Points</Typography>
                     </Grid>
@@ -131,7 +131,7 @@ export const AwesomeSink: React.FC = (props) => {
                           Plot.text(data, {
                             x: "Index",
                             y: "value",
-                            text: (d: any) => `${new Intl.NumberFormat("de-DE", { style: "decimal" }).format(d.value)}`,
+                            text: (d: any) => `${new Intl.NumberFormat("en-US", { style: "decimal" }).format(d.value)}`,
                             dy: 20,
                           }),
                         ],
@@ -148,7 +148,7 @@ export const AwesomeSink: React.FC = (props) => {
               <Card variant="outlined">
                 <CardContent>
                   <Typography level="h5">
-                    {new Intl.NumberFormat("de-DE", { style: "decimal" }).format(sinks[0].PointsToCoupon)}
+                    {new Intl.NumberFormat("en-US", { style: "decimal" }).format(sinks[0].PointsToCoupon)}
                   </Typography>
                   <Typography level="body2">Next Coupon in</Typography>
                 </CardContent>
@@ -158,7 +158,7 @@ export const AwesomeSink: React.FC = (props) => {
               <Card variant="outlined">
                 <CardContent>
                   <Typography level="h5">
-                    {new Intl.NumberFormat("de-DE", { style: "decimal" }).format(sinks[0].Percent)} %
+                    {new Intl.NumberFormat("en-US", { style: "decimal" }).format(sinks[0].Percent)} %
                   </Typography>
                   <Typography level="body2">Next Coupon (%)</Typography>
                 </CardContent>
@@ -168,7 +168,7 @@ export const AwesomeSink: React.FC = (props) => {
               <Card variant="outlined">
                 <CardContent>
                   <Typography level="h5">
-                    {new Intl.NumberFormat("de-DE", { style: "decimal" }).format(sinks[0].NumCoupon)}
+                    {new Intl.NumberFormat("en-US", { style: "decimal" }).format(sinks[0].NumCoupon)}
                   </Typography>
                   <Typography level="body2">Total Coupon(s)</Typography>
                 </CardContent>
