@@ -35,8 +35,8 @@ export const AwesomeSink: React.FC = (props) => {
 
   const loadData = async () => {
     if (doLoadData === true) {
-      const response = await axios.get("`${settings.protocol}://`" + settings.ip + ":" + settings.port + "/getResourceSink");
-      const response2 = await axios.get("`${settings.protocol}://`" + settings.ip + ":" + settings.port + "/getExplorationSink");
+      const response = await axios.get(`${settings.protocol}://` + settings.ip + ":" + settings.port + "/getResourceSink");
+      const response2 = await axios.get(`${settings.protocol}://` + settings.ip + ":" + settings.port + "/getExplorationSink");
       setSink(response.data);
       setSink2(response2.data);
       //console.log(response.data);
