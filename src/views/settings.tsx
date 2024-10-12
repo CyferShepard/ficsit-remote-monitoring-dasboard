@@ -12,7 +12,7 @@ enum protocol {
 export const defaultSettingsData = {
   protocol: protocol.http,
   ip: "localhost",
-  port: "8080",
+  port: ":8080",
   interval: 1000,
 };
 
