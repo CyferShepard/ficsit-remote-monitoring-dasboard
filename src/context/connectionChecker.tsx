@@ -68,7 +68,6 @@ export const ConnectionCheckerProvider: React.FC<any> = (props) => {
       .get(
         `${JSON.parse(localStorage.getItem("rmd_settings") ?? JSON.stringify(defaultSettingsData)).protocol}://` +
           JSON.parse(localStorage.getItem("rmd_settings") ?? JSON.stringify(defaultSettingsData)).ip +
-          ":" +
           JSON.parse(localStorage.getItem("rmd_settings") ?? JSON.stringify(defaultSettingsData)).port +
           "/getDoggo"
       )

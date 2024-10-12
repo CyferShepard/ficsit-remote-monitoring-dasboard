@@ -21,7 +21,7 @@ export const DetailedFactoryView: React.FC = (props) => {
 
   const loadData = async (endpoint: string) => {
     intervalVar = setInterval(async () => {
-      const response = await fetch(`${settings.protocol}://` + settings.ip + ":" + settings.port + "/" + endpoint);
+      const response = await fetch(`${settings.protocol}://` + settings.ip + settings.port + "/" + endpoint);
       const data = await response.text();
       const getPower = JSON.parse(data);
       console.info(getPower);

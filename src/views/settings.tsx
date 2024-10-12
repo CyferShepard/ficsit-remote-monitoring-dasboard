@@ -63,12 +63,14 @@ export const Settings: React.FC = (props) => {
               />
               <Input
                 sx={{ marginTop: "15px" }}
-                value={settings.port}
+                value={settings.port.replace(":", "")}
                 onChange={(e) => {
-                  setSettings({ ...settings, ["port"]: e.target.value });
+                  setSettings({ ...settings, ["port"]: ":" + e.target.value });
                 }}
-                startDecorator={`${settings.protocol || defaultSettingsData.protocol}://` + settings.ip + ":"}
-                placeholder="8080"
+                startDecorator={
+                  `${settings.protocol || defaultSettingsData.protocol}://` + settings.ip + (settings.port !== ":" ? ":" : "")
+                }
+                placeholder=""
               />
             </CardContent>
           </Card>

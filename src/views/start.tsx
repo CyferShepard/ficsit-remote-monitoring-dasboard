@@ -34,7 +34,7 @@ export const Start: React.FC = (props) => {
 
   const loadWorldInventory = async () => {
     if (doLoadData === true) {
-      const response = await axios.get(`${settings.protocol}://` + settings.ip + ":" + settings.port + "/getWorldInv");
+      const response = await axios.get(`${settings.protocol}://` + settings.ip + settings.port + "/getWorldInv");
       setWorldInv(response.data);
       // console.log(response.data);
       setTimeout(() => {
