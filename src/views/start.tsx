@@ -56,7 +56,7 @@ export const Start: React.FC = (props) => {
         Welcome Pioneer!
       </Typography>
       <Typography marginBottom={"50px"} level="h5" color="neutral" fontWeight={400}>
-        Satisfactory Remote Monitoring Dashboard Version 0.1
+        Satisfactory Remote Monitoring Dashboard Version 0.2
       </Typography>
 
       <Grid spacing={3} container sx={{ height: "100%", position: "relative" }}>
