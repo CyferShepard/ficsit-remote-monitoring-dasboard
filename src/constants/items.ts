@@ -338,6 +338,18 @@ export const itemRefs: { [key: string]: any } = {
   "Power Shard": {
     image: "Items/PowerShard_256.png",
   },
+  "Blue Power Slug": {
+    image: "Items/PowerSlugGreen_256.png",
+  },
+  "Yellow Power Slug": {
+    image: "Items/PowerSlugYellow_256.png",
+  },
+  "Purple Power Slug": {
+    image: "Items/PowerSlugPurple_256.png",
+  },
+  SAM: {
+    image: "Items/SAM_256.png",
+  },
   "Reanimated SAM": {
     image: "Items/Desc_SAMIngot_C_256.png",
   },
