@@ -17,13 +17,13 @@ export const Vehicle: React.FC<VehicleProps> = (props) => {
       <Card sx={{ position: "relative", paddingBottom: 0 }} variant="outlined">
         <CardContent>
           <Stack display={"flex"} alignItems={"center"} justifyContent={"center"} flexDirection={"column"}>
-            {vehicle.VehicleType === "Explorer" && (
+            {vehicle.Name === "Explorer" && (
               <img src="./assets/Vehicles/Explorer_256.png" alt="image" style={{ height: "100px", width: "100px" }}></img>
             )}
-            {vehicle.VehicleType === "Truck" && (
+            {vehicle.Name === "Truck" && (
               <img src="./assets/Vehicles/Truck_256.png" alt="image" style={{ height: "100px", width: "100px" }}></img>
             )}
-            {vehicle.VehicleType === "Tractor" && (
+            {vehicle.Name === "Tractor" && (
               <img src="./assets/Vehicles/Tractor_256.png" alt="image" style={{ height: "100px", width: "100px" }}></img>
             )}
             <Box sx={{ position: "relative" }}>

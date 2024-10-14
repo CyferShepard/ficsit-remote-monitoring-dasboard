@@ -67,7 +67,7 @@ export const Vehicles: React.FC = (props) => {
           <Grid container spacing={3} sx={{ marginBottomY: "30px" }} display={"flex"} alignItems={"center"}>
             {vehicles.map((vehicle: any, index: number) => {
               return (
-                <Grid xs={3}>
+                <Grid xs={3} key={index}>
                   <a href={"#" + index} style={{ textDecoration: "none" }}>
                     <Card
                       variant="outlined"
@@ -83,21 +83,21 @@ export const Vehicles: React.FC = (props) => {
                       <CardContent>
                         <Grid container spacing={4} sx={{ paddingX: 0 }}>
                           <Grid>
-                            {vehicle.VehicleType === "Explorer" && (
+                            {vehicle.Name === "Explorer" && (
                               <img
                                 src="./assets/Vehicles/Explorer_256.png"
                                 alt="image"
                                 style={{ height: "70px", width: "70px" }}
                               ></img>
                             )}
-                            {vehicle.VehicleType === "Truck" && (
+                            {vehicle.Name === "Truck" && (
                               <img
                                 src="./assets/Vehicles/Truck_256.png"
                                 alt="image"
                                 style={{ height: "70px", width: "70px" }}
                               ></img>
                             )}
-                            {vehicle.VehicleType === "Tractor" && (
+                            {vehicle.Name === "Tractor" && (
                               <img
                                 src="./assets/Vehicles/Tractor_256.png"
                                 alt="image"
@@ -173,9 +173,6 @@ export const Vehicles: React.FC = (props) => {
                 <CardContent>
                   <Grid container spacing={4} sx={{ paddingX: 0 }}>
                     <Grid>
-                      {/* {vehicle.VehicleType === "Explorer" &&  <img src="./assets/Vehicles/Explorer_256.png" alt="image" style={{height: '70px', width: '70px'}}></img>  }
-                                            {vehicle.VehicleType === "Truck" &&  <img src="./assets/Vehicles/Truck_256.png" alt="image" style={{height: '70px', width: '70px'}}></img>  }
-                                            {vehicle.VehicleType === "Tractor" &&  <img src="./assets/Vehicles/Tractor_256.png" alt="image" style={{height: '70px', width: '70px'}}></img>  } */}
                       <Skeleton variant="circular" height="50px" width="50px" />
                     </Grid>
 
@@ -195,9 +192,6 @@ export const Vehicles: React.FC = (props) => {
                 <CardContent>
                   <Grid container spacing={4} sx={{ paddingX: 0 }}>
                     <Grid>
-                      {/* {vehicle.VehicleType === "Explorer" &&  <img src="./assets/Vehicles/Explorer_256.png" alt="image" style={{height: '70px', width: '70px'}}></img>  }
-                                            {vehicle.VehicleType === "Truck" &&  <img src="./assets/Vehicles/Truck_256.png" alt="image" style={{height: '70px', width: '70px'}}></img>  }
-                                            {vehicle.VehicleType === "Tractor" &&  <img src="./assets/Vehicles/Tractor_256.png" alt="image" style={{height: '70px', width: '70px'}}></img>  } */}
                       <Skeleton variant="circular" height="50px" width="50px" />
                     </Grid>
 
