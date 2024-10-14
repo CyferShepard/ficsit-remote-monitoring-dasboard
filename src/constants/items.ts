@@ -257,6 +257,9 @@ export const itemRefs: { [key: string]: any } = {
   Nobelisk: {
     image: "Items/IconDesc_Explosive_256.png",
   },
+  "Cluster Nobelisk": {
+    image: "Items/Desc_NobeliskCluster_C_256.png",
+  },
   "Nuke Nobelisk": {
     image: "Items/IconDesc_Nuke_256.png",
   },
@@ -334,6 +337,9 @@ export const itemRefs: { [key: string]: any } = {
   },
   "Power Shard": {
     image: "Items/PowerShard_256.png",
+  },
+  "Reanimated SAM": {
+    image: "Items/Desc_SAMIngot_C_256.png",
   },
   "<MISSING STRING TABLE ENTRY>": {
     image: "Items/Unknown_256.png",
