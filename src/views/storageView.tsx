@@ -38,19 +38,20 @@ export const StorageView: React.FC = (props) => {
       //console.info(response.data);
       //   setWorldInv(response.data);
       //   setProdStats(response_extra.data);
-      const substringToReplace = "-nan";
-      const replacement = '"-nan"';
+      // const substringToReplace = "-nan";
+      // const replacement = '"-nan"';
 
-      const substringToReplace2 = ":inf,";
-      const replacement2 = ':"inf",';
-      prepItems(
-        response.data ?? [],
-        JSON.parse(
-          response_extra.data
-            .replace(new RegExp(substringToReplace, "g"), replacement)
-            .replace(new RegExp(substringToReplace2, "g"), replacement2)
-        ) ?? []
-      );
+      // const substringToReplace2 = ":inf,";
+      // const replacement2 = ':"inf",';
+      // prepItems(
+      //   response.data ?? [],
+      //   JSON.parse(
+      //     response_extra.data
+      //       .replace(new RegExp(substringToReplace, "g"), replacement)
+      //       .replace(new RegExp(substringToReplace2, "g"), replacement2)
+      //   ) ?? []
+      // );
+      prepItems(response.data ?? [], response_extra.data ?? []);
 
       setTimeout(() => {
         loadData();
