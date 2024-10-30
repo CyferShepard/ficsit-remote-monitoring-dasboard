@@ -164,7 +164,7 @@ export const PowerMain: React.FC = (props) => {
       <Typography level="h4" sx={{ marginTop: "30px", marginBottom: "30px" }}>
         All Power Circuits
       </Typography>
-      {power ? (
+      {power && Array.isArray(power) ? (
         <>
           {power.map((powerGroup: any, index: number) => {
             return (
