@@ -46,7 +46,7 @@ export const PowerMain: React.FC = (props) => {
   let allProduction = 0;
   let allBatteryCapacity = 0;
   let fuseBroken = false;
-  if (power) {
+  if (power && Array.isArray(power)) {
     power.forEach((element: any) => {
       allCapacity = allCapacity + element.PowerCapacity;
       allProduction = allProduction + element.PowerProduction;
