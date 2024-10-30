@@ -29,7 +29,10 @@ export const PowerMain: React.FC = (props) => {
       const data = await response.text();
       const getPower = JSON.parse(data);
       // console.info(getPower);
-      setPower(getPower);
+      if (!getPower.error) {
+        // console.info(getPower);
+        setPower(getPower);
+      }
     }, settings.interval);
   };
 
