@@ -33,10 +33,10 @@ export const Vehicles: React.FC = (props) => {
       const response = await axios.get(`${settings.protocol}://` + settings.ip + settings.port + "/getVehicles");
       const vehiclesWithFuelType = response.data.map((vehicle: any) => ({
         ...vehicle,
-        FuelType: vehicle.Fuel[0]?.Name || "Unknown", // or any default value you want to set
+        FuelType: vehicle.FuelInventory > 0 ? vehicle.FuelInventory[0]?.Name || "Unknown" : "N/A", // or any default value you want to set
       }));
       setVehicles(vehiclesWithFuelType);
-      // console.log(response.data);
+      // console.log(vehiclesWithFuelType);
 
       setTimeout(() => {
         loadData();
@@ -86,21 +86,21 @@ export const Vehicles: React.FC = (props) => {
                             {vehicle.Name === "Explorer" && (
                               <img
                                 src="./assets/Vehicles/Explorer_256.png"
-                                alt="image"
+                                alt="Explorer_256"
                                 style={{ height: "70px", width: "70px" }}
                               ></img>
                             )}
                             {vehicle.Name === "Truck" && (
                               <img
                                 src="./assets/Vehicles/Truck_256.png"
-                                alt="image"
+                                alt="Truck_256"
                                 style={{ height: "70px", width: "70px" }}
                               ></img>
                             )}
                             {vehicle.Name === "Tractor" && (
                               <img
                                 src="./assets/Vehicles/Tractor_256.png"
-                                alt="image"
+                                alt="Tractor_256"
                                 style={{ height: "70px", width: "70px" }}
                               ></img>
                             )}
@@ -161,6 +161,7 @@ export const Vehicles: React.FC = (props) => {
             {vehicles
               .filter((vehicle: any) => vehicle.Autopilot === true)
               .map((vehicle: any, index: number) => {
+                console.log(vehicle);
                 return <Vehicle key={index} vehicle={vehicle} index={index} />;
               })}
           </Grid>

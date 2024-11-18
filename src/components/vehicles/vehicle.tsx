@@ -3,13 +3,16 @@ import React, { useState } from "react";
 import { BsXCircle } from "react-icons/bs";
 
 interface VehicleProps {
-  vehicle: any;
+  vehicle: JSON;
   index: number;
 }
 
 export const Vehicle: React.FC<VehicleProps> = (props) => {
   const [vehicle, setVehicles] = useState<undefined | any>(props.vehicle);
   const [index, setIndex] = useState<undefined | any>(props.index);
+
+  console.log(vehicle);
+  console.log(props);
 
   return (
     <Grid xs={4}>
@@ -18,13 +21,13 @@ export const Vehicle: React.FC<VehicleProps> = (props) => {
         <CardContent>
           <Stack display={"flex"} alignItems={"center"} justifyContent={"center"} flexDirection={"column"}>
             {vehicle.Name === "Explorer" && (
-              <img src="./assets/Vehicles/Explorer_256.png" alt="image" style={{ height: "100px", width: "100px" }}></img>
+              <img src="./assets/Vehicles/Explorer_256.png" alt="Explorer_256" style={{ height: "100px", width: "100px" }}></img>
             )}
             {vehicle.Name === "Truck" && (
-              <img src="./assets/Vehicles/Truck_256.png" alt="image" style={{ height: "100px", width: "100px" }}></img>
+              <img src="./assets/Vehicles/Truck_256.png" alt="Truck_256" style={{ height: "100px", width: "100px" }}></img>
             )}
             {vehicle.Name === "Tractor" && (
-              <img src="./assets/Vehicles/Tractor_256.png" alt="image" style={{ height: "100px", width: "100px" }}></img>
+              <img src="./assets/Vehicles/Tractor_256.png" alt="Tractor_256" style={{ height: "100px", width: "100px" }}></img>
             )}
             <Box sx={{ position: "relative" }}>
               <Grid container spacing={1} display={"flex"} alignItems={"center"}>
@@ -119,146 +122,166 @@ export const Vehicle: React.FC<VehicleProps> = (props) => {
                   {vehicle.FuelType === "Alien Carapace" && (
                     <img
                       src="./assets/Items/IconDesc_AlienCarapace_256.png"
-                      alt="image"
+                      alt="IconDesc_AlienCarapace_256"
                       style={{ height: "30px", width: "30px" }}
                     ></img>
                   )}
                   {vehicle.FuelType === "Alien Organs" && (
                     <img
                       src="./assets/Items/IconDesc_AlienOrgans_256.png"
-                      alt="image"
+                      alt="IconDesc_AlienOrgans_256"
                       style={{ height: "30px", width: "30px" }}
                     ></img>
                   )}
                   {vehicle.FuelType === "Battery" && (
                     <img
                       src="./assets/Items/IconDesc_Battery_256.png"
-                      alt="image"
+                      alt="IconDesc_Battery_256"
                       style={{ height: "30px", width: "30px" }}
                     ></img>
                   )}
                   {vehicle.FuelType === "Biomass" && (
                     <img
                       src="./assets/Items/IconDesc_Biomass_Final_256.png"
-                      alt="image"
+                      alt="IconDesc_Biomass_Final_256"
                       style={{ height: "30px", width: "30px" }}
                     ></img>
                   )}
                   {vehicle.FuelType === "Coal" && (
                     <img
                       src="./assets/Items/IconDesc_CoalOre_256.png"
-                      alt="image"
+                      alt="IconDesc_CoalOre_256"
                       style={{ height: "30px", width: "30px" }}
                     ></img>
                   )}
                   {vehicle.FuelType === "Color Cartridge" && (
                     <img
                       src="./assets/Items/IconDesc_ColorCartridge_256.png"
-                      alt="image"
+                      alt="IconDesc_ColorCartridge_256"
                       style={{ height: "30px", width: "30px" }}
                     ></img>
                   )}
                   {vehicle.FuelType === "Compacted Coal" && (
                     <img
                       src="./assets/Items/IconDesc_CompactedCoal_256.png"
-                      alt="image"
+                      alt="IconDesc_CompactedCoal_256"
                       style={{ height: "30px", width: "30px" }}
                     ></img>
                   )}
                   {vehicle.FuelType === "Fabric" && (
-                    <img src="./assets/Items/IconDesc_Fabric_256.png" alt="image" style={{ height: "30px", width: "30px" }}></img>
+                    <img
+                      src="./assets/Items/IconDesc_Fabric_256.png"
+                      alt="IconDesc_Fabric_256"
+                      style={{ height: "30px", width: "30px" }}
+                    ></img>
                   )}
                   {vehicle.FuelType === "Flower Petals" && (
                     <img
                       src="./assets/Items/FlowerPetals_Final_256.png"
-                      alt="image"
+                      alt="FlowerPetals_Final_256"
                       style={{ height: "30px", width: "30px" }}
                     ></img>
                   )}
                   {vehicle.FuelType === "Fuel" && (
                     <img
                       src="./assets/Items/IconDesc_LiquidFuel_Pipe_256.png"
-                      alt="image"
+                      alt="IconDesc_LiquidFuel_Pipe_256"
                       style={{ height: "30px", width: "30px" }}
                     ></img>
                   )}
                   {vehicle.FuelType === "Leaves" && (
-                    <img src="./assets/Items/IconDesc_Leaves_256.png" alt="image" style={{ height: "30px", width: "30px" }}></img>
+                    <img
+                      src="./assets/Items/IconDesc_Leaves_256.png"
+                      alt="IconDesc_Leaves_256"
+                      style={{ height: "30px", width: "30px" }}
+                    ></img>
                   )}
                   {vehicle.FuelType === "Liquid Biofuel" && (
                     <img
                       src="./assets/Items/IconDesc_LiquidBiofuel_Pipe_256.png"
-                      alt="image"
+                      alt="IconDesc_LiquidBiofuel_Pipe_256"
                       style={{ height: "30px", width: "30px" }}
                     ></img>
                   )}
                   {vehicle.FuelType === "Mycelia" && (
                     <img
                       src="./assets/Items/IconDesc_Mycelia_256.png"
-                      alt="image"
+                      alt="IconDesc_Mycelia_256"
                       style={{ height: "30px", width: "30px" }}
                     ></img>
                   )}
                   {vehicle.FuelType === "Packaged Fuel" && (
-                    <img src="./assets/Items/IconDesc_Fuel_256.png" alt="image" style={{ height: "30px", width: "30px" }}></img>
+                    <img
+                      src="./assets/Items/IconDesc_Fuel_256.png"
+                      alt="IconDesc_Fuel_256"
+                      style={{ height: "30px", width: "30px" }}
+                    ></img>
                   )}
                   {vehicle.FuelType === "Packaged Heavy Oil Residue" && (
-                    <img src="./assets/Items/OilResidue_256.png" alt="image" style={{ height: "30px", width: "30px" }}></img>
+                    <img
+                      src="./assets/Items/OilResidue_256.png"
+                      alt="OilResidue_256"
+                      style={{ height: "30px", width: "30px" }}
+                    ></img>
                   )}
                   {vehicle.FuelType === "Packaged Liquid Biofuel" && (
                     <img
                       src="./assets/Items/IconDesc_LiquidBiofuel_256.png"
-                      alt="image"
+                      alt="IconDesc_LiquidBiofuel_256"
                       style={{ height: "30px", width: "30px" }}
                     ></img>
                   )}
                   {vehicle.FuelType === "Packaged Oil" && (
-                    <img src="./assets/Items/Oil_256.png" alt="image" style={{ height: "30px", width: "30px" }}></img>
+                    <img src="./assets/Items/Oil_256.png" alt="Oil_256" style={{ height: "30px", width: "30px" }}></img>
                   )}
                   {vehicle.FuelType === "Packaged Turbofuel" && (
                     <img
                       src="./assets/Items/IconDesc_TurboFuel_256.png"
-                      alt="image"
+                      alt="IconDesc_TurboFuel_256"
                       style={{ height: "30px", width: "30px" }}
                     ></img>
                   )}
                   {vehicle.FuelType === "Petroleum Coke" && (
                     <img
                       src="./assets/Items/IconDesc_PetroleumCoke_256.png"
-                      alt="image"
+                      alt="IconDesc_PetroleumCoke_256"
                       style={{ height: "30px", width: "30px" }}
                     ></img>
                   )}
                   {vehicle.FuelType === "Plutonium Fuel Rod" && (
                     <img
                       src="./assets/Items/IconDesc_PlutoniumFuelRod_256.png"
-                      alt="image"
+                      alt="IconDesc_PlutoniumFuelRod_256"
                       style={{ height: "30px", width: "30px" }}
                     ></img>
                   )}
                   {vehicle.FuelType === "Solid Biofuel" && (
                     <img
                       src="./assets/Items/IconDesc_SolidBiofuel_256.png"
-                      alt="image"
+                      alt="IconDesc_SolidBiofuel_256"
                       style={{ height: "30px", width: "30px" }}
                     ></img>
                   )}
                   {vehicle.FuelType === "Turbofuel" && (
                     <img
                       src="./assets/Items/IconDesc_LiquidTurboFuel_Pipe_256.png"
-                      alt="image"
+                      alt="IconDesc_LiquidTurboFuel_Pipe_256"
                       style={{ height: "30px", width: "30px" }}
                     ></img>
                   )}
                   {vehicle.FuelType === "Uranium Fuel Rod" && (
                     <img
                       src="./assets/Items/IconDesc_NuclearFuelRod_256.png"
-                      alt="image"
+                      alt="IconDesc_NuclearFuelRod_256"
                       style={{ height: "30px", width: "30px" }}
                     ></img>
                   )}
                   {vehicle.FuelType === "Wood" && (
-                    <img src="./assets/Items/IconDesc_Wood_256.png" alt="image" style={{ height: "30px", width: "30px" }}></img>
+                    <img
+                      src="./assets/Items/IconDesc_Wood_256.png"
+                      alt="IconDesc_Wood_256"
+                      style={{ height: "30px", width: "30px" }}
+                    ></img>
                   )}
                   {vehicle.FuelType === "N/A" && <BsXCircle color="red" size={"25px"} />}
                 </Grid>
