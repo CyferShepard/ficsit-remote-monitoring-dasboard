@@ -33,7 +33,7 @@ export const Vehicles: React.FC = (props) => {
       const response = await axios.get(`${settings.protocol}://` + settings.ip + settings.port + "/getVehicles");
       const vehiclesWithFuelType = response.data.map((vehicle: any) => ({
         ...vehicle,
-        FuelType: vehicle.FuelInventory > 0 ? vehicle.FuelInventory[0]?.Name || "Unknown" : "N/A", // or any default value you want to set
+        FuelType: vehicle.FuelInventory?.[0]?.Name ?? "N/A", // or any default value you want to set
       }));
       setVehicles(vehiclesWithFuelType);
       // console.log(vehiclesWithFuelType);
