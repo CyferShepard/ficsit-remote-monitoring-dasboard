@@ -68,7 +68,7 @@ export const DetailedGeneratorView: React.FC = () => {
                 marginBottom="5px"
                 fontWeight={600}
               >
-                {currentGeneratorName}
+                {currentGeneratorName.replaceAll("_", " ")}
               </Typography>
             </Grid>
           </Grid>
