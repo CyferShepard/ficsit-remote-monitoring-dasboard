@@ -131,7 +131,7 @@ export const StorageView: React.FC = () => {
                     {gameItemsDictionnary[item.className] === undefined && (
                       <HiOutlineQuestionMarkCircle size="70px" />
                     )}
-                    <Typography marginBottom="5px">{item.name}</Typography>
+                    <Typography marginBottom="5px">{item.name.replaceAll('_',' ')}</Typography>
                     <Typography level="body-md">
                       Total: {item.amount}
                     </Typography>
