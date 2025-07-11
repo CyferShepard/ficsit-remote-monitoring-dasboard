@@ -45,19 +45,25 @@ export const Footer: React.FC = () => {
               </Link>
               .
             </Typography>
+            <Typography level="body-md">
+              This fork is maintained by{" "}
+              <Link
+                style={{
+                  color: "var(--joy-palette-primary-main)",
+                  textDecoration: "none",
+                }}
+                target="_blank"
+                to="https://github.com/CyferShepard"
+              >
+                CyferShepard
+              </Link>
+            </Typography>
           </Grid>
           <Grid xs>
-            <Typography
-              level="body-lg"
-              marginBottom="5px"
-              textAlign="center"
-            >
+            <Typography level="body-lg" marginBottom="5px" textAlign="center">
               Ficsit Remote Monitoring Dashboard
             </Typography>
-            <Typography
-              level="body-md"
-              textAlign="center"
-            >
+            <Typography level="body-md" textAlign="center">
               Github Repository{" "}
               <Link
                 style={{
@@ -72,10 +78,7 @@ export const Footer: React.FC = () => {
             </Typography>
           </Grid>
           <Grid xs>
-            <Typography
-              textAlign="right"
-              level="body-md"
-            >
+            <Typography textAlign="right" level="body-md">
               Base Mod for Satisfactory:{" "}
               <Link
                 style={{
@@ -88,10 +91,7 @@ export const Footer: React.FC = () => {
                 Ficsit Remote Monitoring
               </Link>
             </Typography>
-            <Typography
-              textAlign="right"
-              level="body-md"
-            >
+            <Typography textAlign="right" level="body-md">
               Start mod with{" "}
               <Typography
                 style={{
