@@ -33,7 +33,7 @@ export const useAutoRefetch = <Dto, Fm>(
     const fetchData = async () => {
       if (isMounted && !skip && mapper) {
         const response = await fetcherHelper<Dto>({
-          apiUrl: `http://${settings.ip}:${settings.port}`,
+          apiUrl: `${settings.protocol}://${settings.ip}:${settings.port}`,
           endPoint: `/${endPoint}`,
           method: FetchMethodsEnum.GET,
         });
